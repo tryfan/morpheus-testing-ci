@@ -1,0 +1,3 @@
+pymorpheus
+ansible<2.10
+jmespath

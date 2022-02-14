@@ -1,0 +1,51 @@
+{
+    "zoneId": 1,
+    "instance": {
+      "name": "ubuntu1",
+      "cloud": "awscloud",
+      "site": {
+        "id": 1
+      },
+      "type": "ubuntu",
+      "instanceType": {
+        "code": "ubuntu"
+      },
+      "layout": {
+        "id": 979,
+        "code": "ubuntu-amazon-20.04"
+      },
+      "plan": {
+        "code": "amazon-t2.nano"
+      }
+    },
+    "config": {
+      "resourcePoolId": 2,
+      "isEC2": "false",
+      "publicIpType": "subnet",
+      "createUser": true
+    },
+    "volumes": [
+      {
+        "id": -1,
+        "rootVolume": true,
+        "name": "root",
+        "size": 20,
+        "sizeId": null,
+        "storageType": 23,
+        "datastoreId": null
+      }
+    ],
+    "networkInterfaces": [
+      {
+        "network": {
+          "id": "network-8"
+        }
+      }
+    ],
+    "securityGroups": [
+      {
+        "id": "sg-0d76a5e505b6c16a3"
+      }
+    ],
+    "layoutSize": 1
+  }

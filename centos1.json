@@ -1,0 +1,50 @@
+{
+    "zoneId": 1,
+    "instance": {
+      "name": "centos1",
+      "cloud": "awscloud",
+      "site": {
+        "id": 1
+      },
+      "type": "centos",
+      "instanceType": {
+        "code": "centos"
+      },
+      "layout": {
+        "id": 279,
+        "code": "amazon-centos-7.3-single"
+      },
+      "plan": {
+        "code": "amazon-t2.nano"
+      }
+    },
+    "config": {
+      "resourcePoolId": 2,
+      "isEC2": "false",
+      "publicIpType": "subnet",
+      "createUser": true
+    },
+    "volumes": [
+      {
+        "id": -1,
+        "rootVolume": true,
+        "name": "root",
+        "size": 20,
+        "sizeId": null,
+        "storageType": 23,
+        "datastoreId": null
+      }
+    ],
+    "networkInterfaces": [
+      {
+        "network": {
+          "id": "asdasdrk-8"
+        }
+      }
+    ],
+    "securityGroups": [
+      {
+        "id": "sg-asdasd"
+      }
+    ]
+  }

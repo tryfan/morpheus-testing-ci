@@ -1,0 +1,50 @@
+morpheus_url: MORPHEUSURL
+morpheus_token: MORPHEUSTOKEN
+morpheus_settings:
+  windowsPassword: "morphSecret2@"
+morpheus_groups:
+  - name: maingroup
+    code: maingroup
+morpheus_clouds:
+  - name: awscloud
+    code: awscloud
+    location: useast1
+    visibility: private
+    inventoryLevel: none
+    groupName: maingroup
+    zoneType:
+      code: amazon
+    config:
+      importExisting: "off"
+      isVpc: "true"
+      endpoint: "ec2.us-east-1.amazonaws.com"
+      accessKey: AWSACCESSKEY
+      secretKey: AWSSECRETKEY
+morpheus_keyscerts:
+  - name: jenkinskey
+    publicKey: ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCxuQdW2P1ZP6gi6gJ/EBwkDzzPQhHxAl+mPTsEuaHrQV9MZb2Hu8X/qzDT5hgIE/0R5rQDnPnwKfRVgX7WAItUQxBu06FYW22CeXB4puJa2s9tuUtKTUSVr4nsyAUUh0ZFtIUoSR8RiNAhLpUBQ6UDZRqfE1vQPZ8hoHZwm6Whw56VFQu9ki2vP401qMSV+vRtCp+d2bAegPIwpU47CnimHhKu781R2lz7r8LOTHjiOrvVLovg/6DdyUfXAayF4IciQpLhioSTXYzYYkDspjP9gw99AaVvyN2rLX+wO6voXBg1OxQkb5Cm4HKfZ6nKPL6v6sFYoRFdGXEV6R7Y/Szb
+morpheus_virtualimages:
+  - name: "Windows 2019 AMI New"
+    imageType: ami
+    isCloudInit: "true"
+    installAgent: "true"
+    externalId: "ami-0aad84f764a2bd39a"
+morpheus_nodetypes:
+  - name: "Win2019 Node"
+    shortName: win2019node
+    provisionTypeCode: amazon
+    imageType: ami
+    containerVersion: 2
+    virtual_image_name: "Windows 2019 AMI New"
+morpheus_instancetypes:
+  - name: "New Builds"
+    code: newbuilds
+    category: OS
+    featured: "true"
+morpheus_layouts:
+  - name: Win2019
+    instanceVersion: 1
+    memoryRequirement: 4096
+    provisionTypeCode: amazon
+    nodetype_name: "Win2019 Node"
+    instancetypecode: newbuilds

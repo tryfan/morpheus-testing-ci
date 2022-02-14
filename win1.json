@@ -1,0 +1,49 @@
+{
+  "zoneId": 1,
+  "instance": {
+    "name": "win1",
+    "cloud": "awscloud",
+    "site": {
+      "id": 1
+    },
+    "type": "newbuilds",
+    "instanceType": {
+      "code": "newbuilds"
+    },
+    "layout": {
+      "id": 654654
+    },
+    "plan": {
+      "code": "amazon-t2.medium"
+    }
+  },
+  "config": {
+    "resourcePoolId": 2,
+    "isEC2": "false",
+    "publicIpType": "subnet",
+    "createUser": true
+  },
+  "volumes": [
+    {
+      "id": -1,
+      "rootVolume": true,
+      "name": "root",
+      "size": 40,
+      "sizeId": null,
+      "storageType": 23,
+      "datastoreId": null
+    }
+  ],
+  "networkInterfaces": [
+    {
+      "network": {
+        "id": "network-8"
+      }
+    }
+  ],
+  "securityGroups": [
+    {
+      "id": "sg-0d76a5e505b6c16a3"
+    }
+  ]
+}

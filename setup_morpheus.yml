@@ -1,0 +1,10 @@
+- hosts: morpheus
+  roles:
+    - morpheus.core.settings
+    - morpheus.core.groups
+    - morpheus.core.clouds
+    - morpheus.core.keyscerts
+    - morpheus.core.virtualimages
+    - morpheus.core.nodetypes
+    - morpheus.core.instancetypes
+    - morpheus.core.layouts
