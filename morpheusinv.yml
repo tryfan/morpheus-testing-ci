@@ -1,0 +1,8 @@
+plugin: morpheus.core.morpheus_inventory
+groups:
+  - name: centos1only
+    searchtype: name
+    searchstring: centos1
+  - name: cloudgroup
+    searchtype: cloud
+    searchstring: 1
