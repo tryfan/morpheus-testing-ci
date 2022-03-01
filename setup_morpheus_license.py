@@ -1,13 +1,19 @@
 from pymorpheus import MorpheusClient
 import os
 import time
+import yaml
 
 #print(os.environ)
 # Setup vars from env
-morpheusUrl = os.environ['morpheus_url']
+# morpheusUrl = os.environ['morpheus_url']
 morpheusUsername = os.environ['morpheus_user']
 morpheusPassword = os.environ['morpheus_pass']
 morpheusLicense = os.environ['morpheus_license']
+
+#Get URL from yaml file
+with open('urlvar.yml', 'r') as v:
+    urlVarYaml = yaml.load(v)
+    morpheusUrl = urlVarYaml['morpheus_url']
 
 morpheusAlive = False
 while not morpheusAlive:

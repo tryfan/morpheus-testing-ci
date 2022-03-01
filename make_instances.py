@@ -1,20 +1,41 @@
+from asyncio.windows_events import NULL
 from pymorpheus import MorpheusClient
 import os
 import json
 import time
 from pprint import pprint
+import yaml
 
 # print(os.environ)
 # Setup vars from env
-morpheusUrl = os.environ['morpheus_url']
+# morpheusUrl = os.environ['morpheus_url']
 morpheusUsername = os.environ['morpheus_user']
 morpheusPassword = os.environ['morpheus_pass']
+#Get URL from yaml file
+with open('urlvar.yml', 'r') as v:
+    urlVarYaml = yaml.load(v)
+    morpheusUrl = urlVarYaml['morpheus_url']
 
 # morpheusUrl = 'https://morph.tldtrash.xyz'
 # morpheusUsername = 'admin'
 # morpheusPassword = 'morphPass1@'
 
 morpheus = MorpheusClient(morpheusUrl, username=morpheusUsername, password=morpheusPassword)
+
+callCloudSync = morpheus.call("post", "/zones/1/refresh")
+if not callCloudSync['success']:
+    print("Cloud sync is not successful")
+
+timeCheck = 0
+waitForCloudSync = morpheus.call("get", "/zones/1")
+if waitForCloudSync['zone']['lastUpdated'] is NULL:
+    time.sleep(5)
+    while waitForCloudSync['zone']['lastUpdated'] is NULL:
+        timeCheck += 1
+        if timeCheck == 12:
+            break
+        waitForCloudSync = morpheus.call("get", "/zones/1")
+
 with open('centos1.json', 'r') as centosfile:
     centos1data = centosfile.read()
 centos1 = json.loads(centos1data)
