@@ -11,18 +11,20 @@ morpheusPassword = os.environ['morpheus_pass']
 morpheusLicense = os.environ['morpheus_license']
 
 #Get URL from yaml file
-with open('urlvar.yml', 'r') as v:
-    urlVarYaml = yaml.load(v)
-    morpheusUrl = urlVarYaml['morpheus_url']
+if 'morpheus_url' in os.environ:
+    morpheusUrl = os.environ['morpheus_url']
+else:
+    with open('urlvar.yml', 'r') as v:
+        urlVarYaml = yaml.load(v)
+        morpheusUrl = urlVarYaml['morpheus_url']
 
 morpheusAlive = False
 while not morpheusAlive:
     try:
-        morpheus = MorpheusClient(morpheusUrl, username=morpheusUsername, password=morpheusPassword)
+        morpheus = MorpheusClient(morpheusUrl, username=morpheusUsername, password=morpheusPassword, sslverify=False)
         result = morpheus.call("get","/ping")
         print(result)
         if result['success'] == True:
-            print("it is true")
             morpheusAlive = True
     except:
         print("Checking...")

@@ -2,6 +2,15 @@ morpheus_url: MORPHEUSURL
 morpheus_token: MORPHEUSTOKEN
 morpheus_settings:
   windowsPassword: "morphSecret2@"
+morpheus_users:
+  - username: testuser
+    tenantname: root
+    firstName: "no"
+    lastName: "one"
+    password: morphPass1@
+    email: noone@example.com
+    role_names:
+      - System Admin
 morpheus_groups:
   - name: maingroup
     code: maingroup
